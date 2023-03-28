@@ -54,20 +54,21 @@ const (
 
 // Available ISM bands (by common name).
 const (
-	EU868   Name = "EU868"
-	US915   Name = "US915"
-	CN779   Name = "CN779"
-	EU433   Name = "EU433"
-	AU915   Name = "AU915"
-	CN470   Name = "CN470"
-	AS923   Name = "AS923"   // 0 MHz frequency offset
-	AS923_2 Name = "AS923-2" // -1.80 MHz frequency offset
-	AS923_3 Name = "AS923-3" // -6.60 MHz frequency offset
-	AS923_4 Name = "AS923-4" // -5.90 MHz frequency offset
-	KR920   Name = "KR920"
-	IN865   Name = "IN865"
-	RU864   Name = "RU864"
-	ISM2400 Name = "ISM2400"
+	EU868       Name = "EU868"
+	US915       Name = "US915"
+	CN779       Name = "CN779"
+	EU433       Name = "EU433"
+	AU915       Name = "AU915"
+	CN470       Name = "CN470"
+	AS923       Name = "AS923"   // 0 MHz frequency offset
+	AS923_2     Name = "AS923-2" // -1.80 MHz frequency offset
+	AS923_3     Name = "AS923-3" // -6.60 MHz frequency offset
+	AS923_4     Name = "AS923-4" // -5.90 MHz frequency offset
+	KR920       Name = "KR920"
+	IN865       Name = "IN865"
+	RU864       Name = "RU864"
+	ISM2400     Name = "ISM2400"
+	KZ865CUSTOM Name = "KZ865CUSTOM"
 )
 
 // Modulation defines the modulation type.
@@ -697,6 +698,8 @@ func GetConfig(name Name, repeaterCompatible bool, dt lorawan.DwellTime) (Band, 
 		return newRU864Band(repeaterCompatible)
 	case ISM2400:
 		return newISM2400Band(repeaterCompatible)
+	case KZ865CUSTOM:
+		return newKz865CustomBand(repeaterCompatible)
 	default:
 		return nil, fmt.Errorf("lorawan/band: band %s is undefined", name)
 	}
