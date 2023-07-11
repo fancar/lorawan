@@ -8,17 +8,11 @@ import (
 
 /*
 
-Частоты инициализации – 866.2, 866.4
-
-865.1 - SF7BW125 to SF12BW125
-865.3 - SF7BW125 to SF12BW125 and SF7BW250
-865.5 - SF7BW125 to SF12BW125
-
-865.1 - SF7BW125 to SF12BW125
-865.3 - SF7BW125 to SF12BW125 and SF7BW250
-865.5 - SF7BW125 to SF12BW125
+Частоты инициализации – 866.2, 866.4 RX\TX (аналогично российским 868.9 и 869.1).
+Доп. частоты, которые должны спускаться на оконечные устройства после процедуры регистрации:
+ 865.1, 865.3, 865.5 (в данный момент они не спускаются т.к. являются частью ЧП).
+По RX2 всё остаётся:
 Rx2: 865.525 - SF9BW125
-
 
 */
 
@@ -100,15 +94,13 @@ func newKg866CustomBand(repeaterCompatible bool) (Band, error) {
 				-14,
 			},
 			uplinkChannels: []Channel{
-				{Frequency: 865100000, MinDR: 0, MaxDR: 5, enabled: true},
-				{Frequency: 865300000, MinDR: 0, MaxDR: 6, enabled: true},
-				{Frequency: 865500000, MinDR: 0, MaxDR: 5, enabled: true},
+				{Frequency: 866200000, MinDR: 0, MaxDR: 5, enabled: true},
+				{Frequency: 866400000, MinDR: 0, MaxDR: 5, enabled: true},
 			},
 
 			downlinkChannels: []Channel{
-				{Frequency: 865100000, MinDR: 0, MaxDR: 5, enabled: true},
-				{Frequency: 865300000, MinDR: 0, MaxDR: 6, enabled: true},
-				{Frequency: 865500000, MinDR: 0, MaxDR: 5, enabled: true},
+				{Frequency: 866200000, MinDR: 0, MaxDR: 5, enabled: true},
+				{Frequency: 866400000, MinDR: 0, MaxDR: 5, enabled: true},
 			},
 		},
 	}
